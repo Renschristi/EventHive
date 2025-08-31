@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - EventHive</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="registration.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <h1><i class="fas fa-calendar-star"></i> EventHive</h1>
+                </a>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <div class="profile-dropdown">
+                    <button class="profile-btn" id="profileBtn">
+                        <i class="fas fa-user"></i>
+                        <span id="profileName">Profile</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu" id="profileDropdown">
+                        <a href="#" id="viewProfile">View Profile</a>
+                        <a href="#" id="myBookings">My Bookings</a>
+                        <a href="#" id="settings">Settings</a>
+                        <hr>
+                        <a href="#" id="logoutBtn">Logout</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Progress Bar -->
+            <div class="progress-bar">
+                <div class="progress-step completed">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Select Tickets</div>
+                </div>
+                <div class="progress-line completed"></div>
+                <div class="progress-step active">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Registration</div>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Payment</div>
+                </div>
+            </div>
+
+            <!-- Registration Header -->
+            <div class="registration-header">
+                <h2>Registration Information</h2>
+                <p>Please fill in the details for each ticket holder</p>
+                <div class="event-info">
+                    <div class="event-card">
+                        <img id="eventImage" src="" alt="Event">
+                        <div class="event-details">
+                            <h3 id="eventTitle">Event Title</h3>
+                            <p><i class="fas fa-calendar"></i> <span id="eventDate">Date</span></p>
+                            <p><i class="fas fa-map-marker-alt"></i> <span id="eventLocation">Location</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="ticket-summary">
+                    <h4>Ticket Summary</h4>
+                    <div id="ticketSummary"></div>
+                </div>
+            </div>
+
+            <!-- Registration Forms -->
+            <div class="registration-forms" id="registrationForms">
+                <!-- Dynamic forms will be generated here -->
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="btn secondary" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i> Back to Ticket Selection
+                </button>
+                <button class="btn primary" id="proceedToPayment" onclick="proceedToPayment()">
+                    Proceed to Payment <i class="fas fa-arrow-right"></i>
+                </button>
+                <button class="btn cancel" onclick="cancelBooking()">
+                    <i class="fas fa-times"></i> Cancel
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-calendar-star"></i> EventHive</h3>
+                    <p>Discover amazing events happening around you.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> info@eventhive.com</p>
+                    <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EventHive. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="registration.js"></script>
+</body>
+</html>

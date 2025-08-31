@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Tickets - EventHive</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="ticket-booking.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Back Button -->
+                <button class="back-btn" onclick="window.history.back()">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 12H5m7-7l-7 7 7 7"></path>
+                    </svg>
+                    Back
+                </button>
+
+                <!-- Logo -->
+                <div class="logo">
+                    <h1>EventHive</h1>
+                </div>
+
+                <!-- Close Button -->
+                <button class="close-btn" onclick="closeBooking()">
+                    <i class="fas fa-times"></i>
+                    Close
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <div class="booking-container">
+                <!-- Event Summary -->
+                <div class="event-summary">
+                    <div class="event-summary-image">
+                        <img id="eventImage" src="" alt="Event Image" />
+                    </div>
+                    <div class="event-summary-content">
+                        <h1 id="eventTitle">Event Title</h1>
+                        <div class="event-summary-details">
+                            <div class="summary-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span id="eventDate">Date</span>
+                            </div>
+                            <div class="summary-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span id="eventLocation">Location</span>
+                            </div>
+                            <div class="summary-item">
+                                <i class="fas fa-tag"></i>
+                                <span id="eventType">Type</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ticket Selection -->
+                <div class="ticket-selection">
+                    <h2>Select Your Tickets</h2>
+                    
+                    <!-- Standard Ticket -->
+                    <div class="ticket-option" data-ticket-type="standard">
+                        <div class="ticket-info">
+                            <div class="ticket-header">
+                                <h3>Standard Ticket</h3>
+                                <div class="ticket-price" id="standardPrice">$199</div>
+                            </div>
+                            <div class="ticket-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> General admission access</li>
+                                    <li><i class="fas fa-check"></i> Event program and materials</li>
+                                    <li><i class="fas fa-check"></i> Access to main activities</li>
+                                    <li><i class="fas fa-check"></i> Standard parking</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="ticket-selector">
+                            <label for="standardQuantity">Quantity:</label>
+                            <div class="quantity-controls">
+                                <button type="button" onclick="decreaseQuantity('standard')" class="qty-btn">-</button>
+                                <input type="number" id="standardQuantity" min="0" max="10" value="0" readonly>
+                                <button type="button" onclick="increaseQuantity('standard')" class="qty-btn">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- VIP Ticket -->
+                    <div class="ticket-option" data-ticket-type="vip">
+                        <div class="ticket-info">
+                            <div class="ticket-header">
+                                <h3>VIP Ticket</h3>
+                                <div class="ticket-price" id="vipPrice">$399</div>
+                            </div>
+                            <div class="ticket-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Premium seating/standing area</li>
+                                    <li><i class="fas fa-check"></i> Exclusive VIP lounge access</li>
+                                    <li><i class="fas fa-check"></i> Complimentary refreshments</li>
+                                    <li><i class="fas fa-check"></i> Priority entry and parking</li>
+                                    <li><i class="fas fa-check"></i> Meet & greet opportunities</li>
+                                    <li><i class="fas fa-check"></i> Exclusive merchandise</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="ticket-selector">
+                            <label for="vipQuantity">Quantity:</label>
+                            <div class="quantity-controls">
+                                <button type="button" onclick="decreaseQuantity('vip')" class="qty-btn">-</button>
+                                <input type="number" id="vipQuantity" min="0" max="10" value="0" readonly>
+                                <button type="button" onclick="increaseQuantity('vip')" class="qty-btn">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div class="summary-items" id="summaryItems">
+                        <div class="summary-placeholder">Select tickets to see your order summary</div>
+                    </div>
+                    <div class="summary-total">
+                        <div class="total-line">
+                            <span>Total Amount:</span>
+                            <span class="total-price" id="totalPrice">$0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="register-btn" id="registerBtn" onclick="proceedToRegister()" disabled>
+                        <i class="fas fa-ticket-alt"></i>
+                        Register for Event
+                    </button>
+                    <button class="close-btn-secondary" onclick="closeBooking()">
+                        <i class="fas fa-times"></i>
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Confirmation Modal -->
+    <div class="modal-overlay" id="confirmationModal" style="display: none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Confirm Your Booking</h3>
+                <button class="modal-close" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="booking-confirmation">
+                    <div class="confirmation-event">
+                        <h4 id="confirmEventTitle">Event Title</h4>
+                        <p id="confirmEventDetails">Event details</p>
+                    </div>
+                    <div class="confirmation-tickets">
+                        <h4>Selected Tickets:</h4>
+                        <div id="confirmTicketList"></div>
+                    </div>
+                    <div class="confirmation-total">
+                        <div class="total-amount">
+                            <span>Total Amount: </span>
+                            <span id="confirmTotalPrice">$0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="confirm-booking-btn" onclick="confirmBooking()">
+                    <i class="fas fa-credit-card"></i>
+                    Confirm Booking
+                </button>
+                <button class="cancel-btn" onclick="closeModal()">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ticket-booking.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

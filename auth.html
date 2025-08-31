@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventHive - Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="auth-styles.css" />
+</head>
+<body>
+    <!-- Notification Messages -->
+    <div id="loginError" style="position:fixed;top:24px;right:24px;z-index:1000;display:none;color:#fff;background:#d32f2f;padding:10px 20px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.15);font-weight:500;"></div>
+    <div id="loginSuccess" style="position:fixed;top:24px;right:24px;z-index:1000;display:none;color:#fff;background:#4caf50;padding:10px 20px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.15);font-weight:500;"></div>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+        <button id="themeBtn">
+            <i class="fas fa-sun"></i>
+        </button>
+    </div>
+
+    <!-- Back to Login Portal -->
+    <div class="back-to-home">
+        <a href="login-portal.html" class="back-link">
+            <i class="fas fa-arrow-left"></i>
+            Back to Login Portal
+        </a>
+    </div>
+
+    <div class="container">
+        <h1 class="main-title" id="authTitle">EventHive Authentication</h1>
+        <div class="role-indicator" id="roleIndicator" style="text-align: center; margin-bottom: 1rem; padding: 0.5rem; border-radius: 8px; font-weight: 500; display: none;">
+            <i class="fas fa-user-shield"></i>
+            <span id="roleText">Admin Login</span>
+        </div>
+        <div class="card">
+            <div class="tabs">
+                <button id="registerTab" class="active">Register</button>
+                <button id="loginTab">Login</button>
+            </div>
+
+            <!-- Register Form -->
+            <div id="registerForm">
+                <label for="regUsername" class="input-label">Username</label>
+                <input type="text" id="regUsername" class="input-field" placeholder="Enter username" />
+                
+                <label for="regEmail" class="input-label">Email</label>
+                <input type="email" id="regEmail" class="input-field" placeholder="Enter email for OTP verification" />
+                
+                <label for="regPassword" class="input-label">Password</label>
+                <input type="password" id="regPassword" class="input-field" placeholder="Enter password" />
+                
+                <button id="regBtn" class="action-btn">Register</button>
+                
+                <div class="divider"><span>or</span></div>
+                
+                <button onclick="window.location.href='/auth/google'" class="google-btn">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=" alt="Google Logo">
+                    Sign up with Google
+                </button>
+                
+                <div id="regMsg" class="msg"></div>
+            </div>
+
+            <!-- Login Form -->
+            <div id="loginForm" style="display:none;">
+                <label for="loginUsername" class="input-label">Username</label>
+                <input type="text" id="loginUsername" class="input-field" placeholder="Enter username" />
+                
+                <label for="loginPassword" class="input-label">Password</label>
+                <input type="password" id="loginPassword" class="input-field" placeholder="Enter password" />
+                
+                <button id="loginBtn" class="action-btn">Login</button>
+                
+                <div class="divider"><span>or</span></div>
+                
+                <button onclick="window.location.href='/auth/google'" class="google-btn">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=" alt="Google Logo">
+                    Sign in with Google
+                </button>
+                
+                <div id="loginMsg" class="msg"></div>
+            </div>
+            
+            <!-- OTP Verification Form -->
+            <div id="otpForm" style="display:none;">
+                <h2 style="text-align: center; margin-bottom: 20px;">OTP Verification</h2>
+                <p style="text-align: center; margin-bottom: 20px; color: #666; font-size: 14px;">
+                    Please enter the 6-digit code sent to your email
+                </p>
+                <label for="otpInput" class="input-label">Enter OTP</label>
+                <input type="text" id="otpInput" class="input-field" placeholder="Enter 6-digit OTP" maxlength="6" />
+                <div style="display: flex; gap: 10px; margin-top: 20px;">
+                    <button id="verifyOtpBtn" class="action-btn" style="flex: 1;">Verify OTP</button>
+                </div>
+                <button id="backToLoginBtn" class="action-btn" style="background: #666; margin-top: 10px;">Back</button>
+                <div id="otpMsg" class="msg"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="auth-script.js"></script>
+</body>
+</html>

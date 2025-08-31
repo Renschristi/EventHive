@@ -1,0 +1,439 @@
+/* Event Details Page Styles */
+
+/* Hero Section */
+.event-hero {
+    margin-bottom: 2rem;
+}
+
+.event-hero-image {
+    position: relative;
+    height: 400px;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.event-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.event-hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    padding: 3rem 2rem 2rem;
+    color: white;
+}
+
+.event-type-badge {
+    display: inline-block;
+    background: rgba(124, 58, 237, 0.9);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+}
+
+.event-hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+}
+
+.event-hero-description {
+    font-size: 1.125rem;
+    margin: 0 0 1.5rem 0;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+.event-hero-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #22c55e;
+}
+
+/* Back Button */
+.back-btn {
+    background: transparent;
+    border: 1px solid #e5e7eb;
+    color: #374151;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
+}
+
+.back-btn svg {
+    width: 1rem;
+    height: 1rem;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+}
+
+/* Event Details Section */
+.event-details-section {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.event-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Event Info Card */
+.event-info-card,
+.event-description-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.event-info-card h2,
+.event-description-card h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 1.5rem 0;
+}
+
+.event-info-list {
+    margin-bottom: 2rem;
+}
+
+.event-info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.event-info-item:last-child {
+    border-bottom: none;
+}
+
+.info-icon {
+    width: 3rem;
+    height: 3rem;
+    background: linear-gradient(135deg, #7c3aed, #3b82f6);
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.125rem;
+}
+
+.info-content {
+    flex: 1;
+}
+
+.info-label {
+    display: block;
+    font-size: 0.875rem;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.info-value {
+    display: block;
+    font-size: 1rem;
+    color: #1f2937;
+    font-weight: 600;
+    margin-top: 0.25rem;
+}
+
+/* Book Event Button */
+.book-event-btn {
+    width: 100%;
+    background: linear-gradient(90deg, #7c3aed 0%, #3b82f6 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(124, 58, 237, 0.3);
+}
+
+.book-event-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(124, 58, 237, 0.4);
+}
+
+.book-event-btn.booked {
+    background: #22c55e;
+    cursor: default;
+}
+
+.book-event-btn.booked:hover {
+    transform: none;
+    box-shadow: 0 4px 16px rgba(34, 197, 94, 0.3);
+}
+
+/* Event Description */
+.event-full-description {
+    color: #4b5563;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.event-highlights h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 1rem 0;
+}
+
+.event-highlights ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.event-highlights li {
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+    color: #4b5563;
+}
+
+.event-highlights li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #22c55e;
+    font-weight: bold;
+}
+
+/* Map Section */
+.map-section {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+}
+
+.map-section h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 1.5rem 0;
+}
+
+.map-container {
+    position: relative;
+}
+
+#eventMap {
+    height: 300px;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.map-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f9fafb;
+    border-radius: 0.75rem;
+}
+
+.map-address {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #4b5563;
+    font-weight: 500;
+}
+
+.map-address i {
+    color: #ef4444;
+}
+
+.directions-btn {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.directions-btn:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+}
+
+/* Share Section */
+.share-section {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.share-section h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 1.5rem 0;
+}
+
+.share-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.share-btn {
+    flex: 1;
+    min-width: 120px;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 0.875rem;
+}
+
+.share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.share-btn.facebook {
+    background: #1877f2;
+    color: white;
+}
+
+.share-btn.twitter {
+    background: #1da1f2;
+    color: white;
+}
+
+.share-btn.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+}
+
+.share-btn.whatsapp {
+    background: #25d366;
+    color: white;
+}
+
+.share-btn.copy-link {
+    background: #6b7280;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .event-hero-title {
+        font-size: 2rem;
+    }
+    
+    .event-details-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .event-info-card,
+    .event-description-card,
+    .map-section,
+    .share-section {
+        padding: 1.5rem;
+    }
+    
+    .share-buttons {
+        flex-direction: column;
+    }
+    
+    .share-btn {
+        min-width: auto;
+    }
+    
+    .header-content {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .back-btn {
+        order: 1;
+        width: 100%;
+    }
+    
+    .logo {
+        order: 2;
+    }
+    
+    .header-actions {
+        order: 3;
+    }
+}
+
+@media (max-width: 480px) {
+    .event-hero-image {
+        height: 250px;
+    }
+    
+    .event-hero-overlay {
+        padding: 2rem 1rem 1rem;
+    }
+    
+    .event-hero-title {
+        font-size: 1.5rem;
+    }
+    
+    .event-hero-description {
+        font-size: 1rem;
+    }
+    
+    .event-hero-price {
+        font-size: 1.5rem;
+    }
+}

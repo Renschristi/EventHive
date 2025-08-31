@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details - EventHive</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="event-details.css">
+    <!-- Leaflet CSS for maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Back Button -->
+                <button class="back-btn" onclick="window.history.back()">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 12H5m7-7l-7 7 7 7"></path>
+                    </svg>
+                    Back to Events
+                </button>
+
+                <!-- Logo -->
+                <div class="logo">
+                    <h1>EventHive</h1>
+                </div>
+
+                <!-- Right side navigation -->
+                <div class="header-actions">
+                    <button class="btn-text" id="myBookingsBtn">My Bookings</button>
+                    
+                    <!-- Profile Dropdown -->
+                    <div class="profile-dropdown" id="profileDropdownContainer">
+                        <button class="profile-btn" id="profileBtn">
+                            <div class="profile-avatar" id="profileAvatar">U</div>
+                            <span class="profile-text" id="profileText">Profile</span>
+                            <svg class="dropdown-icon" viewBox="0 0 24 24">
+                                <path d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu" id="profileMenu">
+                            <a href="#" class="dropdown-item" id="viewProfileBtn">View Profile</a>
+                            <a href="#" class="dropdown-item" id="settingsBtn">Settings</a>
+                            <a href="#" class="dropdown-item" id="logoutBtn">Sign Out</a>
+                        </div>
+                    </div>
+
+                    <button class="btn-primary" id="authToggleBtn">Login</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Event Hero Section -->
+            <div class="event-hero">
+                <div class="event-hero-image">
+                    <img id="eventImage" src="" alt="Event Image" />
+                    <div class="event-hero-overlay">
+                        <div class="event-hero-content">
+                            <div class="event-type-badge" id="eventTypeBadge">Festival</div>
+                            <h1 class="event-hero-title" id="eventTitle">Event Title</h1>
+                            <p class="event-hero-description" id="eventDescription">Event description</p>
+                            <div class="event-hero-price" id="eventPrice">$299</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event Details Section -->
+            <div class="event-details-section">
+                <div class="event-details-grid">
+                    <!-- Event Information -->
+                    <div class="event-info-card">
+                        <h2>Event Information</h2>
+                        <div class="event-info-list">
+                            <div class="event-info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <div class="info-content">
+                                    <span class="info-label">Date & Time</span>
+                                    <span class="info-value" id="eventDate">March 15-17, 2025</span>
+                                </div>
+                            </div>
+                            
+                            <div class="event-info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="info-content">
+                                    <span class="info-label">Location</span>
+                                    <span class="info-value" id="eventLocation">Central Park, New York</span>
+                                </div>
+                            </div>
+                            
+                            <div class="event-info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-tag"></i>
+                                </div>
+                                <div class="info-content">
+                                    <span class="info-label">Category</span>
+                                    <span class="info-value" id="eventCategory">Music</span>
+                                </div>
+                            </div>
+                            
+                            <div class="event-info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-dollar-sign"></i>
+                                </div>
+                                <div class="info-content">
+                                    <span class="info-label">Price</span>
+                                    <span class="info-value" id="eventPriceInfo">$299</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Book Event Button -->
+                        <button class="book-event-btn" id="bookEventBtn">
+                            <i class="fas fa-ticket-alt"></i>
+                            Book This Event
+                        </button>
+                    </div>
+
+                    <!-- Additional Details -->
+                    <div class="event-description-card">
+                        <h2>About This Event</h2>
+                        <div class="event-full-description" id="eventFullDescription">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                        
+                        <div class="event-highlights">
+                            <h3>Event Highlights</h3>
+                            <ul id="eventHighlights">
+                                <!-- Will be populated by JavaScript -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Section -->
+                <div class="map-section">
+                    <h2>Event Location</h2>
+                    <div class="map-container">
+                        <div id="eventMap"></div>
+                        <div class="map-info">
+                            <div class="map-address">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span id="mapAddress">Event Location</span>
+                            </div>
+                            <button class="directions-btn" id="directionsBtn">
+                                <i class="fas fa-directions"></i>
+                                Get Directions
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Share Section -->
+                <div class="share-section">
+                    <h2>Share This Event</h2>
+                    <div class="share-buttons">
+                        <button class="share-btn facebook" onclick="shareOnFacebook()">
+                            <i class="fab fa-facebook-f"></i>
+                            Facebook
+                        </button>
+                        <button class="share-btn twitter" onclick="shareOnTwitter()">
+                            <i class="fab fa-twitter"></i>
+                            Twitter
+                        </button>
+                        <button class="share-btn instagram" onclick="shareOnInstagram()">
+                            <i class="fab fa-instagram"></i>
+                            Instagram
+                        </button>
+                        <button class="share-btn whatsapp" onclick="shareOnWhatsApp()">
+                            <i class="fab fa-whatsapp"></i>
+                            WhatsApp
+                        </button>
+                        <button class="share-btn copy-link" onclick="copyEventLink()">
+                            <i class="fas fa-link"></i>
+                            Copy Link
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Leaflet JS for maps -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Event Details Script -->
+    <script src="event-details.js"></script>
+    <!-- Main Script for authentication -->
+    <script src="script.js"></script>
+</body>
+</html>

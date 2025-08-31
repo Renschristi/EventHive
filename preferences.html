@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Your Preferences - EventHive</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="preferences.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <h1><i class="fas fa-calendar-star"></i> EventHive</h1>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="preferences-container">
+                <div class="preferences-header">
+                    <div class="welcome-message">
+                        <h1>Welcome to EventHive!</h1>
+                        <p>Let's personalize your experience by setting up your event preferences.</p>
+                        <p class="subtitle">We'll use this information to suggest events you'll love!</p>
+                    </div>
+                </div>
+
+                <div class="preferences-form">
+                    <div class="preferences-section">
+                        <h3><i class="fas fa-heart"></i> Event Categories</h3>
+                        <p>What types of events interest you the most?</p>
+                        <div class="preference-grid">
+                            <div class="preference-item" data-category="music">
+                                <div class="preference-icon">
+                                    <i class="fas fa-music"></i>
+                                </div>
+                                <span>Music & Concerts</span>
+                            </div>
+                            <div class="preference-item" data-category="technology">
+                                <div class="preference-icon">
+                                    <i class="fas fa-laptop-code"></i>
+                                </div>
+                                <span>Technology</span>
+                            </div>
+                            <div class="preference-item" data-category="arts">
+                                <div class="preference-icon">
+                                    <i class="fas fa-palette"></i>
+                                </div>
+                                <span>Arts & Culture</span>
+                            </div>
+                            <div class="preference-item" data-category="business">
+                                <div class="preference-icon">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <span>Business</span>
+                            </div>
+                            <div class="preference-item" data-category="food">
+                                <div class="preference-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <span>Food & Drink</span>
+                            </div>
+                            <div class="preference-item" data-category="sports">
+                                <div class="preference-icon">
+                                    <i class="fas fa-running"></i>
+                                </div>
+                                <span>Sports & Fitness</span>
+                            </div>
+                            <div class="preference-item" data-category="education">
+                                <div class="preference-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <span>Education</span>
+                            </div>
+                            <div class="preference-item" data-category="entertainment">
+                                <div class="preference-icon">
+                                    <i class="fas fa-theater-masks"></i>
+                                </div>
+                                <span>Entertainment</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="preferences-section">
+                        <h3><i class="fas fa-calendar"></i> Event Types</h3>
+                        <p>What formats do you prefer?</p>
+                        <div class="preference-grid">
+                            <div class="preference-item" data-type="festival">
+                                <div class="preference-icon">
+                                    <i class="fas fa-flag"></i>
+                                </div>
+                                <span>Festivals</span>
+                            </div>
+                            <div class="preference-item" data-type="conference">
+                                <div class="preference-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <span>Conferences</span>
+                            </div>
+                            <div class="preference-item" data-type="workshop">
+                                <div class="preference-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <span>Workshops</span>
+                            </div>
+                            <div class="preference-item" data-type="concert">
+                                <div class="preference-icon">
+                                    <i class="fas fa-microphone"></i>
+                                </div>
+                                <span>Concerts</span>
+                            </div>
+                            <div class="preference-item" data-type="exhibition">
+                                <div class="preference-icon">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                                <span>Exhibitions</span>
+                            </div>
+                            <div class="preference-item" data-type="seminar">
+                                <div class="preference-icon">
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                </div>
+                                <span>Seminars</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="preferences-section">
+                        <h3><i class="fas fa-map-marker-alt"></i> Location Preferences</h3>
+                        <p>Where would you like to attend events?</p>
+                        <div class="location-preferences">
+                            <div class="form-group">
+                                <label for="preferredCity">Preferred City/Location</label>
+                                <input type="text" id="preferredCity" placeholder="e.g., New York, San Francisco, Los Angeles">
+                            </div>
+                            <div class="form-group">
+                                <label for="maxDistance">Maximum Distance (miles)</label>
+                                <select id="maxDistance">
+                                    <option value="10">Within 10 miles</option>
+                                    <option value="25">Within 25 miles</option>
+                                    <option value="50" selected>Within 50 miles</option>
+                                    <option value="100">Within 100 miles</option>
+                                    <option value="unlimited">No limit</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="preferences-section">
+                        <h3><i class="fas fa-dollar-sign"></i> Budget Range</h3>
+                        <p>What's your typical budget for events?</p>
+                        <div class="budget-range">
+                            <div class="budget-option" data-budget="free">
+                                <i class="fas fa-gift"></i>
+                                <span>Free Events</span>
+                            </div>
+                            <div class="budget-option" data-budget="low">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>$1 - $50</span>
+                            </div>
+                            <div class="budget-option" data-budget="medium">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>$50 - $200</span>
+                            </div>
+                            <div class="budget-option" data-budget="high">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>$200 - $500</span>
+                            </div>
+                            <div class="budget-option" data-budget="premium">
+                                <i class="fas fa-gem"></i>
+                                <span>$500+</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="preferences-section">
+                        <h3><i class="fas fa-clock"></i> Time Preferences</h3>
+                        <p>When do you prefer to attend events?</p>
+                        <div class="time-preferences">
+                            <div class="time-grid">
+                                <div class="time-option" data-time="morning">
+                                    <i class="fas fa-sun"></i>
+                                    <span>Morning (6AM - 12PM)</span>
+                                </div>
+                                <div class="time-option" data-time="afternoon">
+                                    <i class="fas fa-cloud-sun"></i>
+                                    <span>Afternoon (12PM - 6PM)</span>
+                                </div>
+                                <div class="time-option" data-time="evening">
+                                    <i class="fas fa-moon"></i>
+                                    <span>Evening (6PM - 12AM)</span>
+                                </div>
+                                <div class="time-option" data-time="weekend">
+                                    <i class="fas fa-calendar-weekend"></i>
+                                    <span>Weekends Only</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="preferences-section">
+                        <h3><i class="fas fa-bell"></i> Notification Preferences</h3>
+                        <p>How would you like to be notified about new events?</p>
+                        <div class="notification-preferences">
+                            <div class="notification-option">
+                                <input type="checkbox" id="emailNotifications" checked>
+                                <label for="emailNotifications">
+                                    <i class="fas fa-envelope"></i>
+                                    Email notifications
+                                </label>
+                            </div>
+                            <div class="notification-option">
+                                <input type="checkbox" id="weeklyDigest" checked>
+                                <label for="weeklyDigest">
+                                    <i class="fas fa-calendar-week"></i>
+                                    Weekly event digest
+                                </label>
+                            </div>
+                            <div class="notification-option">
+                                <input type="checkbox" id="upcomingReminders">
+                                <label for="upcomingReminders">
+                                    <i class="fas fa-bell"></i>
+                                    Event reminders
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn secondary" onclick="skipPreferences()">
+                            Skip for Now
+                        </button>
+                        <button class="btn primary" id="savePreferences" onclick="savePreferences()">
+                            Save Preferences & Continue
+                        </button>
+                    </div>
+                </div>
+
+                <div class="preferences-footer">
+                    <p><i class="fas fa-info-circle"></i> You can change these preferences anytime in your profile settings.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <h3>Setting up your personalized experience...</h3>
+            <p>This will only take a moment!</p>
+        </div>
+    </div>
+
+    <script src="preferences.js"></script>
+</body>
+</html>
