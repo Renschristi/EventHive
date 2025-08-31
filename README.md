@@ -1,5 +1,7 @@
 # EventHive - Event Management Platform
 
+video link : https://drive.google.com/drive/folders/1A2WhBGTVtVj4r87xbAYEWDpeDp03SUX0?usp=sharing
+
 ![EventHive Banner](https://via.placeholder.com/800x200/667eea/ffffff?text=EventHive+Event+Management+Platform)
 
 > A full-stack event management platform built with Node.js, Express.js, MongoDB Atlas, and vanilla JavaScript. Features secure authentication, PayPal payment integration, and comprehensive booking management.
